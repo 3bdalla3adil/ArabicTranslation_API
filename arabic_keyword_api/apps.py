@@ -2,5 +2,7 @@ from django.apps import AppConfig
 
 
 class ArabicKeywordApiConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
     name = 'arabic_keyword_api'
+
+class TodosConfig(AppConfig):
+    name = 'todos'
