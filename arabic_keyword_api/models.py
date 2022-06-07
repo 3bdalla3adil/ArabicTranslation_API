@@ -1,4 +1,5 @@
-from django.db import models
+from django.db   import models
+# from .arabic_keyword_api  import stringutils
 
 
 class keyword(models.Model):
@@ -7,4 +8,6 @@ class keyword(models.Model):
 
     def __str__(self):
         return self.keyword_text
+
+    
 # Create your models here.
