@@ -1,5 +1,5 @@
 #Arabic_Text_Api
-django arabic text app for makin JSoON output
+django arabic text app for makin JSON output
 
 
 # TodoAPI
