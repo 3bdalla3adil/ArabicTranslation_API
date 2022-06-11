@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apis.apps.ApisConfig',
-    'todos.apps.TodosConfig',
+    #'apis.apps.ApisConfig',
+    #'todos.apps.TodosConfig',
     
     'arabic_keyword_api.apps.ArabicKeywordApiConfig',
     'rest_framework',
