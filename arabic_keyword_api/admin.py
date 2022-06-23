@@ -2,6 +2,5 @@ from django.contrib import admin
 
 from .models        import keyword
 
-
-admin.register(keyword)
+admin.site.register(keyword)
 # Register your models here.
