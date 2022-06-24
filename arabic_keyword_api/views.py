@@ -1,4 +1,4 @@
-from base64 import encode
+from django.http                import HttpResponse
 from django.shortcuts           import render
 from django.shortcuts           import get_object_or_404
 
@@ -40,12 +40,12 @@ class DetailKeyword(generics.RetrieveUpdateDestroyAPIView):
             raise Http404
 
     def get(self, request, pk, format=None):
-        keyword1= self.get_object(pk)
+        keyword1   = self.get_object(pk)
         serializer = KeywordSerializer(keyword1)
         return Response(serializer.data)
 
     def put(self, request, pk, format=None):
-        keyword1= self.get_object(pk)
+        keyword1   = self.get_object(pk)
         serializer = KeywordSerializer(keyword1, data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -53,6 +53,9 @@ class DetailKeyword(generics.RetrieveUpdateDestroyAPIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk, format=None):
-        keyword1= self.get_object(pk)
+        keyword1   = self.get_object(pk)
         keyword1.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+def home():
+    return HttpResponse("<h1>Welcome to the homepage</h1>")

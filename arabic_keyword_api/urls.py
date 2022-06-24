@@ -1,9 +1,10 @@
 from django.urls import path
 
-from .views      import ListKeyword
-from .views      import DetailKeyword
+from .views      import ListKeyword,DetailKeyword, home
+# from .views      import 
 
 urlpatterns = [
-    path(''         , ListKeyword  .as_view()),
-    path('<int:pk>/', DetailKeyword.as_view())
+    path('apis/v1/'         , ListKeyword  .as_view()),
+    path('apis/v1/<int:pk>/', DetailKeyword.as_view()),
+    #path(''                 , home())
 ]

@@ -8,5 +8,6 @@ class KeywordSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'keyword_text',
+            'keyword_translations',
         )
         model = models.keyword
