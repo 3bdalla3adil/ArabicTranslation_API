@@ -40,7 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
     
+=======
+>>>>>>> 8771cc18b1ab13e02f90578b7ddef2b7fc253895
     'arabic_keyword_api.apps.ArabicKeywordApiConfig',
     'rest_framework',
 ]
