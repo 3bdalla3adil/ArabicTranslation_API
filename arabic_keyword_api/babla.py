@@ -8,7 +8,7 @@ import sys
 
 def scrape(word):
 
-    response = Request(f"https://en.bab.la/dictionary/english-arabic/{word}", headers={'User-Agent': 'Mozilla/5.0'})
+    response = Request(f"https://en.bab.la/dictionary/arabic-english/{word}", headers={'User-Agent': 'Mozilla/5.0'})
 
     #webpage  = response
     soup     = BeautifulSoup(urlopen(response).read().decode('utf-8'), "lxml")
