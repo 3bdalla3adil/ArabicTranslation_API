@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 from django.http                import HttpResponse
-=======
->>>>>>> 8771cc18b1ab13e02f90578b7ddef2b7fc253895
 from django.shortcuts           import render
 from django.shortcuts           import get_object_or_404
 
