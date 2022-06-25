@@ -1,19 +1,16 @@
 #!/usr/bin/env python3
 
 from urllib.request import urlopen,Request
-from bs4            import BeautifulSoup
-
+from bs4 import BeautifulSoup
 import sys
 
+translations = []
 
 def scrape(word):
 
     response = Request(f"https://en.bab.la/dictionary/arabic-english/{word}", headers={'User-Agent': 'Mozilla/5.0'})
 
-    #webpage  = response
     soup     = BeautifulSoup(urlopen(response).read().decode('utf-8'), "lxml")
-
-    translations = []
 
     try:
         content_container = soup.findAll("div", attrs={"class": "quick-results container"})[0]
@@ -23,9 +20,9 @@ def scrape(word):
                     continue
                 else:
                     translations.append(a.text)
-                    
+                # print(translations)
     except IndexError:
-        print("Index Error ,,,")
+        print("uhh")
 
     if not translations:
         sys.exit(1)
@@ -33,5 +30,16 @@ def scrape(word):
     # for t in translations:
     #     print(t)
 
-    return {word:",".join(translations)}
+
+# if __name__ == "__main__":
+#     ap = argparse.ArgumentParser()
+#     ap.add_argument("word")
+#     args = ap.parse_args()
+    # print()
+    # translate from ar to eng
+    
+# scrape(quote_plus(args.word))
+
+    
+    
 

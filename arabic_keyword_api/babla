@@ -10,7 +10,7 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("word")
     args = ap.parse_args()
-    print(quote_plus(args.word))
+    # print(quote_plus(args.word))
         
     #loook for the keyword in the online Dictionary
     scrape(quote_plus(args.word))
