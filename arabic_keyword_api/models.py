@@ -1,8 +1,6 @@
  
 import subprocess
 from django.db    import models
-
-# from arabic_keyword_api  import stringutils
     
 class keyword(models.Model):
 
@@ -14,7 +12,7 @@ class keyword(models.Model):
         
         self.keyword_translations = str({self.keyword_text:output})
         print('output='+output)
-        return output
+        return {self.keyword_text:output}
         
 
     def save(self,*args,**kwargs):
