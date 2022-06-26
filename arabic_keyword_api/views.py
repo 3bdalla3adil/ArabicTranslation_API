@@ -62,4 +62,6 @@ class DetailKeyword(generics.RetrieveUpdateDestroyAPIView):
 class HomePage(generics.GenericAPIView):
     
     def homy(self):
-        return HttpResponse("<h1>Welcome to Arabic Text Translation web HomePage</h1>")
+        home_page_html = "<h1>Welcome to Arabic Text Translation API HomePage</h1><br>"
+        r = '<a href="/">APIView Page</a>'
+        return HttpResponse(home_page_html+r)

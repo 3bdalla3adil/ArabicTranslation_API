@@ -1,14 +1,12 @@
-from ast import Import
-from http.client import ImproperConnectionState
 from django.test import TestCase
 from . models    import keyword
 
 # import unittest
 
-class TestStringUtils(TestCase):
+class testTranlations(TestCase):
 
-    def test_Reverse(self):
-        self.assertEqual(keyword.objects.create("Hello, world"      ),"dlrow ,olleH"      )
+    def test_create(self):
+        self.assertEqual(keyword.objects.create("Hello, world"      ),""                  )
         self.assertEqual(keyword.objects.create("Crowdbotics"       ), "scitobdworC"      )
         self.assertEqual(keyword.objects.create("Hello, 世界"       ), "界世 ,olleH"       )
         self.assertEqual(keyword.objects.create("نص عربي"          ), "يبرع صن"          )
