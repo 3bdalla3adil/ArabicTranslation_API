@@ -11,7 +11,7 @@ class keyword(models.Model):
         output = str(subprocess.check_output(['py' ,'babla',self.keyword_text], shell=True))
         
         self.keyword_translations = str({self.keyword_text:output})
-        print('output='+output)
+        print('output='+output.decode('utf-8'))
         return {self.keyword_text:output}
         
 
