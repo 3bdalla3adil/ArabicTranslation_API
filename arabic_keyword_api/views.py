@@ -1,5 +1,4 @@
-import subprocess
-from django.http                import HttpResponse
+from django.http                import HttpResponse,HttpResponseRedirect
 from django.shortcuts           import render
 from django.shortcuts           import get_object_or_404
 
@@ -26,7 +25,8 @@ class ListKeyword(generics.ListCreateAPIView):
         
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED,)
+            return HttpResponseRedirect(request.META['HTTP_REFERER'])
+            # return Response(serializer.data, status=status.HTTP_201_CREATED,)
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
