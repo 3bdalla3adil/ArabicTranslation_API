@@ -8,10 +8,10 @@ class keyword(models.Model):
     keyword_translations = models.CharField("Ttranslated Keyword", blank=True,default='لاشيء',max_length=200)
 
     def get_translation(self):
-        output = str(subprocess.check_output(['py' ,'babla',self.keyword_text], shell=True))
+        output = str(subprocess.check_output(['py' ,'babla',self.keyword_text], shell=True).decode('utf-8'))
         
         self.keyword_translations = str({self.keyword_text:output})
-        print('output='+output.decode('utf-8'))
+        print('output='+output)
         return {self.keyword_text:output}
         
 
