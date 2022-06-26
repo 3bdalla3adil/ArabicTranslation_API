@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 """
 Django settings for web project.
 
@@ -130,7 +130,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-=======
+
 """
 Django settings for web project.
 
@@ -173,10 +173,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
     
-=======
->>>>>>> 8771cc18b1ab13e02f90578b7ddef2b7fc253895
     'arabic_keyword_api.apps.ArabicKeywordApiConfig',
     'rest_framework',
 ]
@@ -265,4 +262,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
->>>>>>> 58b842debb869a8e4a5b13211341285f3a15ad95

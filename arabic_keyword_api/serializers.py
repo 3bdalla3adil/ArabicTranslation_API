@@ -1,5 +1,4 @@
 
-import subprocess
 from rest_framework            import serializers
 from arabic_keyword_api.models import keyword
 
