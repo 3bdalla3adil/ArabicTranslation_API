@@ -8,7 +8,8 @@ class keyword(models.Model):
 
     def get_translation(self):
         import platform,subprocess
-        if platform.system() == 'Linux' or 'Darwin' :
+        host_system = platform.system()
+        if host_system == 'Linux' or host_system == 'Darwin' :
             output = str(subprocess.check_output(['python3' ,'babla',self.keyword_text], shell=True).decode('utf-8'))
           
         elif platform.system() == 'Windows':
