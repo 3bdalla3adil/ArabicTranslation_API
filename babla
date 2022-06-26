@@ -11,10 +11,12 @@ if __name__ == "__main__":
     ap.add_argument("word")
     args = ap.parse_args()
 
-    if quote_plus(args.word).isascii:
-        response = Request(f"https://en.bab.la/dictionary/english-arabic/{quote_plus(args.word)}", headers={'User-Agent': 'Mozilla/5.0'})
-    else:
-        response = Request(f"https://en.bab.la/dictionary/arabic-english/{quote_plus(args.word)}", headers={'User-Agent': 'Mozilla/5.0','charset':'utf-8' })
+    response = Request(f"https://en.bab.la/dictionary/english-arabic/{quote_plus(args.word)}", headers={'User-Agent': 'Mozilla/5.0'})
+    
+    # if quote_plus(args.word).isascii:
+    #     response = Request(f"https://en.bab.la/dictionary/english-arabic/{quote_plus(args.word)}", headers={'User-Agent': 'Mozilla/5.0'})
+    # else:
+    #     response = Request(f"https://en.bab.la/dictionary/arabic-english/{quote_plus(args.word)}", headers={'User-Agent': 'Mozilla/5.0','charset':'utf-8' })
 
     soup         = BeautifulSoup(urlopen(response).read().decode('utf-8'), "lxml")
 

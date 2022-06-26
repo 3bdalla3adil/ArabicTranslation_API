@@ -1,5 +1,8 @@
  
+import subprocess
 from django.db    import models
+
+# from arabic_keyword_api  import stringutils
     
 class keyword(models.Model):
 
@@ -7,17 +10,12 @@ class keyword(models.Model):
     keyword_translations = models.CharField("Ttranslated Keyword", blank=True,default='لاشيء',max_length=200)
 
     def get_translation(self):
-        import platform,subprocess
-        host_system = platform.system()
-        if host_system == 'Linux' or host_system == 'Darwin' :
-            output = str(subprocess.check_output(['python3' ,'babla',self.keyword_text], shell=True).decode('utf-8'))
-          
-        elif platform.system() == 'Windows':
-            output = str(subprocess.check_output(['py' ,'babla',self.keyword_text], shell=True).decode('utf-8'))
+        output = subprocess.check_output(['py' ,'babla',self.keyword_text], shell=True).decode('utf-8').strip('\r\n')
         
-        self.keyword_translations = str({self.keyword_text:output})
+        # self.keyword_translations = output
         # print('output='+output)
-        return {self.keyword_text:output}
+        return output
+        # return {self.keyword_text:output}
         
 
     def save(self,*args,**kwargs):
