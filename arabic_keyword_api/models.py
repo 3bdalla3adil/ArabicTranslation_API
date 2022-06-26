@@ -2,7 +2,6 @@
 import subprocess
 from django.db    import models
 
-# from arabic_keyword_api  import stringutils
     
 class keyword(models.Model):
 
@@ -12,11 +11,7 @@ class keyword(models.Model):
     def get_translation(self):
         output = subprocess.check_output(['py' ,'babla',self.keyword_text], shell=True).decode('utf-8').strip('\r\n')
         
-        # self.keyword_translations = output
-        # print('output='+output)
         return output
-        # return {self.keyword_text:output}
-        
 
     def save(self,*args,**kwargs):
         self.keyword_translations = self.get_translation()

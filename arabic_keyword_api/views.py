@@ -59,5 +59,7 @@ class DetailKeyword(generics.RetrieveUpdateDestroyAPIView):
         keyword1.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-def home():
-    return HttpResponse("<h1>Welcome to the homepage</h1>")
+class HomePage(generics.GenericAPIView):
+    
+    def homy(self):
+        return HttpResponse("<h1>Welcome to Arabic Text Translation web HomePage</h1>")
