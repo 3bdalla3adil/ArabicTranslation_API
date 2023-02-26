@@ -9,5 +9,10 @@ in term of JSON format .
 
 a simple python functions that deals with arabic keyword and remove its
 
+## Requirement
+
+- BeautifulSoup 
+- urllib3
+- lxml
 
 
