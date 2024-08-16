@@ -5,8 +5,16 @@ from django.db    import models
     
 class keyword(models.Model):
 
-    keyword_text         = models.CharField("KeyWord to Translate",max_length=150)
-    keyword_translations = models.CharField("Ttranslated Keyword", blank=True,default='لاشيء',max_length=200)
+    keyword_text         = models.CharField("Keyword to Translate",max_length=150)
+    keyword_translations = models.CharField("Translated Keyword", blank=True,default='لاشيء',max_length=200)
+    
+    objects = KeywordManager()
+    
+    # Meta class within the Model to define indexes that speed up query performance
+    class Meta:
+        indexes = [
+            models.Index(fields=['keyword_text']),
+        ]
 
     def get_translation(self):
         output = subprocess.check_output(['py' ,'babla',self.keyword_text], shell=True).decode('utf-8').strip('\r\n')
@@ -20,3 +28,10 @@ class keyword(models.Model):
 
     def __str__(self):
        return self.keyword_text
+
+
+class KeywordManager(models.Manager):
+    def recent_keyword(self):
+        return self.filter()
+
+    
