@@ -14,5 +14,6 @@ a simple python functions that deals with arabic keyword and remove its
 - BeautifulSoup 
 - urllib3
 - lxml
+- celery
 
 
