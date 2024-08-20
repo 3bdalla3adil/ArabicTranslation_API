@@ -1,0 +1,47 @@
+[project]
+name = "arabic-keyword-api"
+version = "1.0.11"
+description = "Django REST endpoints."
+readme = "README.md"
+authors = [{name = "Abdulla AAHB", email = "3bdalla995@gmail.com"}]
+license = { file = "LICENSE" }
+classifiers = [
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 4.1.2",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Topic :: Internet"
+]
+requires-python = ">=3.9"
+urls = { homepage = "https://3bdalla3adil.github.io/" }
+
+dependencies = [
+    "Django>4",
+    "djangorestframework>=3",
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tools.black]
+max-line-length = 88
+
+[build-system]
+requires = ['setuptools>=68.1.0', 'wheel']
+build-backend = 'setuptools.build_meta'
+
+[tool.mypy]
+
+ignore_missing_imports = true
+disable_error_code = "attr-defined, valid-type"
+disallow_untyped_defs = true
+mypy_path = "df_auth"
+exclude = "venv|migrations|build|dist|docs"
+
+plugins = ["mypy_django_plugin.main"]
