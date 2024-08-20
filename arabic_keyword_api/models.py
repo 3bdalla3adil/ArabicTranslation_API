@@ -30,8 +30,31 @@ class keyword(models.Model):
        return self.keyword_text
 
 
-class KeywordManager(models.Manager):
-    def recent_keyword(self):
-        return self.filter()
+class ArabicKeywordQuerySet(models.QuerySet):
+    def recent(self):
+        return self.filter(created_at__gte='2024-01-01')
+
+    def by_keyword(self, keyword):
+        return self.filter(keyword__iexact=keyword)
+
+class ArabicKeywordManager(models.Manager):
+    def get_queryset(self):
+        return ArabicKeywordQuerySet(self.model, using=self._db)
+
+    def recent_keywords(self):
+        return self.get_queryset().recent()
+
+    def search_by_keyword(self, keyword):
+        return self.get_queryset().by_keyword(keyword)
+
+class ArabicKeyword(models.Model):
+    keyword = models.CharField(max_length=255)
+    translation = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    objects = ArabicKeywordManager()
+
+    def __str__(self):
+        return self.keyword
 
     
